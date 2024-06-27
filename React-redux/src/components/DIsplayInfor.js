@@ -2,9 +2,29 @@ import React  from "react"
 import './DisplayInfor.scss'
 class DisplayInfor extends React.Component {
 
-  state = {
-    isShowLisyUsers: true
+  constructor(props) {
+    super(props)
+    this.state = {
+      isShowLisyUsers: true
+    }
   }
+
+  componentDidMount() {
+    console.log('call me componentDidMount');
+    setTimeout(() => {
+      document.title = 'thenam2kx'
+    }, 3000)
+  }
+
+  componentDidUpdate(prevProps, prevState, snapshost) {
+    console.log('call me componentDidUpdate', this.props, prevProps);
+    if (this.props.listUsers !== prevProps.listUsers) {
+      if (this.props.listUsers.length === 5) {
+        alert('mme')
+      }
+    }
+  }
+  
 
   handleShowHide = () => {
     this.setState({
